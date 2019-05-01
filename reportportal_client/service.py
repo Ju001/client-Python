@@ -170,7 +170,7 @@ class ReportPortalService(object):
                                      status=status)
 
     def start_test_item(self, name, start_time, item_type, description=None,
-                        tags=None, parameters=None):
+                        tags=None, parameters=None, retry=None):
         """
         item_type can be (SUITE, STORY, TEST, SCENARIO, STEP, BEFORE_CLASS,
         BEFORE_GROUPS, BEFORE_METHOD, BEFORE_SUITE, BEFORE_TEST, AFTER_CLASS,
@@ -194,6 +194,7 @@ class ReportPortalService(object):
             "start_time": start_time,
             "launch_id": self.launch_id,
             "type": item_type,
+            "retry": retry,
             "parameters": parameters,
         }
         parent_item_id = self.stack[-1]
